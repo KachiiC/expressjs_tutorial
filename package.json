@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/KachiiC/expressjs_tutorial#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "g": "^2.0.1",
+    "joi": "^17.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
