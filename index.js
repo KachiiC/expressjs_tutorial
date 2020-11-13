@@ -1,41 +1,14 @@
-const { parse } = require('path')
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
 
-app.use(express.json())
-
-const courses = [
-    {   id: 1, name: "english" },
-    {   id: 2, name: "maths"   },
-    {   id: 3, name: "science" }
-]
+const port = 5000;
 
 app.get('/', (req, res) => {
-    res.send("ello There!")
-})
+ res.status(200).send(`Hello World! Our server is running at port ${port}`);
+});
 
-app.get('/api/courses', (req, res) => {
-    res.send(courses)
-})
-
-app.post('/api/courses', (req, res) => {
-
-    const course = {
-        id: courses.length +1,
-        name: req.body.name
-    };
-
-    courses.push(course);
-    res.send(course)
-})
-
-app.get('/api/courses/:id/:name', (req, res) => {
-    const course = courses.find(c => c.id === parseInt(req.params.id));
-    if (!course) res.status(404).send("Nope sorry mate try again....")
-    res.send(course)
-})
-
-
-// PORT
-const port  = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listenning on port ${port}...`))
+server.listen(port, () => {
+ console.log(`Server running at port ${port}`);
+});
