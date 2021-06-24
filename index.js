@@ -1,14 +1,17 @@
-const express = require('express');
-const app = express();
-const http = require('http');
-const server = http.createServer(app);
+const express = require('express')
 
-const port = 5000;
+const app = express()
+
+const http = require('http')
+
+const server = http.createServer(app)
+
+const port = 3000
 
 app.get('/', (req, res) => {
- res.status(200).send(`Hello World! Our server is running at port ${port}`);
-});
+    res.status(200).send(`Hello World! Our server is running at port ${port}`)
+})
 
 server.listen(port, () => {
- console.log(`Server running at port ${port}`);
-});
+    console.log(`Server running at port ${port}`);
+})
